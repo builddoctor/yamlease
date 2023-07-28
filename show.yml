@@ -1,0 +1,579 @@
+{
+  "artifacts": [
+    {
+      "alias": "_builddoctor.pipeline-playpen",
+      "definitionReference": {
+        "IsMultiDefinitionType": {
+          "id": "False",
+          "name": "False"
+        },
+        "artifactSourceDefinitionUrl": {
+          "id": "https://dev.azure.com/builddoctor/_permalink/_build/index?collectionId=233797f3-a68a-46bc-b292-1db7835cbb05&projectId=b5daf606-ce6b-453f-bead-ecf75316199c&definitionId=1",
+          "name": ""
+        },
+        "defaultVersionBranch": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionSpecific": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionTags": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionType": {
+          "id": "latestType",
+          "name": "Latest"
+        },
+        "definition": {
+          "id": "1",
+          "name": "builddoctor.pipeline-playpen"
+        },
+        "definitions": {
+          "id": "",
+          "name": ""
+        },
+        "project": {
+          "id": "b5daf606-ce6b-453f-bead-ecf75316199c",
+          "name": "Playpen"
+        },
+        "repository": {
+          "id": "155c9311-7e43-48cb-9d72-94146f787f8a",
+          "name": "test must go"
+        }
+      },
+      "isPrimary": true,
+      "isRetained": false,
+      "sourceId": "b5daf606-ce6b-453f-bead-ecf75316199c:1",
+      "type": "Build"
+    }
+  ],
+  "comment": null,
+  "createdBy": {
+    "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "directoryAlias": null,
+    "displayName": "Julian Simpson",
+    "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
+    "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "inactive": null,
+    "isAadIdentity": null,
+    "isContainer": null,
+    "isDeletedInOrigin": null,
+    "profileUrl": null,
+    "uniqueName": "simpsonjulian@gmail.com",
+    "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+  },
+  "createdOn": "2023-07-28T05:47:04.707000+00:00",
+  "description": null,
+  "environments": [
+    {
+      "badgeUrl": "https://vsrm.dev.azure.com/builddoctor/_apis/public/Release/badge/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/1/1",
+      "conditions": [
+        {
+          "conditionType": "event",
+          "name": "ReleaseStarted",
+          "value": ""
+        }
+      ],
+      "currentRelease": {
+        "id": 0,
+        "name": null,
+        "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/releases/0"
+      },
+      "demands": [],
+      "deployPhases": [
+        {
+          "deploymentInput": {
+            "condition": "succeeded()",
+            "jobCancelTimeoutInMinutes": 1,
+            "overrideInputs": {},
+            "parallelExecution": {
+              "parallelExecutionType": "none"
+            },
+            "timeoutInMinutes": 0
+          },
+          "name": "Agentless job",
+          "phaseType": "runOnServer",
+          "rank": 1,
+          "refName": null,
+          "workflowTasks": []
+        }
+      ],
+      "deployStep": {
+        "id": 4,
+        "tasks": null
+      },
+      "environmentOptions": {
+        "autoLinkWorkItems": false,
+        "badgeEnabled": false,
+        "emailNotificationType": "OnlyOnFailure",
+        "emailRecipients": "release.environment.owner;release.creator",
+        "enableAccessToken": false,
+        "publishDeploymentStatus": true,
+        "pullRequestDeploymentEnabled": false,
+        "skipArtifactsDownload": false,
+        "timeoutInMinutes": 0
+      },
+      "environmentTriggers": [],
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
+      "id": 1,
+      "name": "Stage 1",
+      "owner": {
+        "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "directoryAlias": null,
+        "displayName": "Julian Simpson",
+        "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
+        "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "inactive": null,
+        "isAadIdentity": null,
+        "isContainer": null,
+        "isDeletedInOrigin": null,
+        "profileUrl": null,
+        "uniqueName": "simpsonjulian@gmail.com",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+      },
+      "postDeployApprovals": {
+        "approvalOptions": {
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "executionOrder": "afterSuccessfulGates",
+          "releaseCreatorCanBeApprover": false,
+          "requiredApproverCount": null,
+          "timeoutInMinutes": 0
+        },
+        "approvals": [
+          {
+            "approver": null,
+            "id": 5,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "rank": 1
+          }
+        ]
+      },
+      "postDeploymentGates": {
+        "gates": [],
+        "gatesOptions": null,
+        "id": 0
+      },
+      "preDeployApprovals": {
+        "approvalOptions": {
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "executionOrder": "beforeGates",
+          "releaseCreatorCanBeApprover": false,
+          "requiredApproverCount": null,
+          "timeoutInMinutes": 0
+        },
+        "approvals": [
+          {
+            "approver": null,
+            "id": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "rank": 1
+          }
+        ]
+      },
+      "preDeploymentGates": {
+        "gates": [],
+        "gatesOptions": null,
+        "id": 0
+      },
+      "processParameters": {
+        "dataSourceBindings": null,
+        "inputs": null,
+        "sourceDefinitions": null
+      },
+      "properties": {
+        "BoardsEnvironmentType": {
+          "$type": "System.String",
+          "$value": "unmapped"
+        },
+        "LinkBoardsWorkItems": {
+          "$type": "System.String",
+          "$value": "False"
+        }
+      },
+      "queueId": null,
+      "rank": 1,
+      "retentionPolicy": {
+        "daysToKeep": 30,
+        "releasesToKeep": 3,
+        "retainBuild": true
+      },
+      "runOptions": null,
+      "schedules": [],
+      "variableGroups": [],
+      "variables": {}
+    },
+    {
+      "badgeUrl": "https://vsrm.dev.azure.com/builddoctor/_apis/public/Release/badge/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/1/2",
+      "conditions": [
+        {
+          "conditionType": "environmentState",
+          "name": "Stage 1",
+          "value": "4"
+        }
+      ],
+      "currentRelease": {
+        "id": 0,
+        "name": null,
+        "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/releases/0"
+      },
+      "demands": [],
+      "deployPhases": [
+        {
+          "deploymentInput": {
+            "agentSpecification": null,
+            "artifactsDownloadInput": {
+              "downloadInputs": []
+            },
+            "condition": "succeeded()",
+            "demands": [],
+            "enableAccessToken": false,
+            "jobCancelTimeoutInMinutes": 1,
+            "overrideInputs": {},
+            "parallelExecution": {
+              "parallelExecutionType": "none"
+            },
+            "queueId": 13,
+            "skipArtifactsDownload": false,
+            "timeoutInMinutes": 0
+          },
+          "name": "Run on agent",
+          "phaseType": "agentBasedDeployment",
+          "rank": 1,
+          "refName": null,
+          "workflowTasks": [
+            {
+              "alwaysRun": false,
+              "condition": "succeeded()",
+              "continueOnError": false,
+              "definitionType": null,
+              "enabled": true,
+              "environment": {},
+              "inputs": {
+                "AdditionalArguments": "",
+                "AppSettings": "-RAILS_SERVE_STATIC_FILES true",
+                "ConfigurationSettings": "",
+                "ConnectedServiceName": "$(Parameters.ConnectedServiceName)",
+                "ConnectionType": "AzureRM",
+                "DeployToSlotOrASEFlag": "false",
+                "DeploymentType": "webDeploy",
+                "DockerImageTag": "",
+                "DockerNamespace": "$(Parameters.DockerNamespace)",
+                "DockerRepository": "$(Parameters.DockerRepository)",
+                "ExcludeFilesFromAppDataFlag": "false",
+                "InlineScript": "BUNDLE_INSTALL_LOCATION=\"/tmp/bundle\"\nSITE_CONFIG_DIR=\"/home/site/config\"\nRBENV_VERSION = $(ls /usr/local/.rbenv/versions | grep 2.3 | tail -n 1)\neval \"$(rbenv init -)\"\nrbenv global $RBENV_VERSION\nbundle clean --force\nmkdir -p $BUNDLE_INSTALL_LOCATION\nbundle config --global path $BUNDLE_INSTALL_LOCATION\nbundle install --no-deployment\ntar -zcf /tmp/gems.tgz -C $BUNDLE_INSTALL_LOCATION .\nmkdir -p $SITE_CONFIG_DIR\nmv -f /tmp/gems.tgz $SITE_CONFIG_DIR\nbundle exec rake --trace assets:precompile",
+                "JSONFiles": "",
+                "Package": "$(System.DefaultWorkingDirectory)/**/*.zip",
+                "PublishProfilePassword": "",
+                "PublishProfilePath": "$(System.DefaultWorkingDirectory)/**/*.pubxml",
+                "RemoveAdditionalFilesFlag": "false",
+                "RenameFilesFlag": "true",
+                "ResourceGroupName": "",
+                "RuntimeStack": "",
+                "RuntimeStackFunction": "",
+                "ScriptPath": "",
+                "ScriptType": "Inline Script",
+                "SetParametersFile": "",
+                "SlotName": "production",
+                "StartupCommand": "$(Parameters.StartupCommand)",
+                "TakeAppOfflineFlag": "true",
+                "UseWebDeploy": "false",
+                "VirtualApplication": "",
+                "WebAppKind": "$(Parameters.WebAppKind)",
+                "WebAppName": "$(Parameters.WebAppName)",
+                "WebConfigParameters": "",
+                "XmlTransformation": "false",
+                "XmlVariableSubstitution": "false"
+              },
+              "name": "Deploy Azure App Service",
+              "overrideInputs": {},
+              "refName": "",
+              "retryCountOnTaskFailure": 0,
+              "taskId": "497d490f-eea7-4f2b-ab94-48d9c1acdcb1",
+              "timeoutInMinutes": 0,
+              "version": "4.*"
+            }
+          ]
+        }
+      ],
+      "deployStep": {
+        "id": 3,
+        "tasks": null
+      },
+      "environmentOptions": {
+        "autoLinkWorkItems": false,
+        "badgeEnabled": false,
+        "emailNotificationType": "OnlyOnFailure",
+        "emailRecipients": "release.environment.owner;release.creator",
+        "enableAccessToken": false,
+        "publishDeploymentStatus": true,
+        "pullRequestDeploymentEnabled": false,
+        "skipArtifactsDownload": false,
+        "timeoutInMinutes": 0
+      },
+      "environmentTriggers": [],
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
+      "id": 2,
+      "name": "Stage 2",
+      "owner": {
+        "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "directoryAlias": null,
+        "displayName": "Julian Simpson",
+        "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
+        "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "inactive": null,
+        "isAadIdentity": null,
+        "isContainer": null,
+        "isDeletedInOrigin": null,
+        "profileUrl": null,
+        "uniqueName": "simpsonjulian@gmail.com",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+      },
+      "postDeployApprovals": {
+        "approvalOptions": {
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "executionOrder": "afterSuccessfulGates",
+          "releaseCreatorCanBeApprover": false,
+          "requiredApproverCount": null,
+          "timeoutInMinutes": 0
+        },
+        "approvals": [
+          {
+            "approver": null,
+            "id": 6,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "rank": 1
+          }
+        ]
+      },
+      "postDeploymentGates": {
+        "gates": [],
+        "gatesOptions": null,
+        "id": 0
+      },
+      "preDeployApprovals": {
+        "approvalOptions": {
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "executionOrder": "beforeGates",
+          "releaseCreatorCanBeApprover": false,
+          "requiredApproverCount": null,
+          "timeoutInMinutes": 0
+        },
+        "approvals": [
+          {
+            "approver": null,
+            "id": 2,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "rank": 1
+          }
+        ]
+      },
+      "preDeploymentGates": {
+        "gates": [],
+        "gatesOptions": null,
+        "id": 0
+      },
+      "processParameters": {
+        "dataSourceBindings": [
+          {
+            "callbackContextTemplate": null,
+            "callbackRequiredTemplate": null,
+            "dataSourceName": "AzureRMWebAppNamesByAppType",
+            "endpointId": "$(ConnectedServiceName)",
+            "endpointUrl": null,
+            "headers": null,
+            "initialContextTemplate": null,
+            "parameters": {
+              "WebAppKind": "$(WebAppKind)"
+            },
+            "resultSelector": null,
+            "resultTemplate": null,
+            "target": "WebAppName"
+          }
+        ],
+        "inputs": [
+          {
+            "aliases": [],
+            "defaultValue": "a3aab596-c264-4e36-9953-8f6c6d8a2200",
+            "groupName": "",
+            "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment.",
+            "label": "Azure subscription",
+            "name": "ConnectedServiceName",
+            "options": {},
+            "properties": {},
+            "required": true,
+            "type": "connectedService:AzureRM",
+            "validation": null,
+            "visibleRule": ""
+          },
+          {
+            "aliases": [],
+            "defaultValue": "webAppLinux",
+            "groupName": "",
+            "helpMarkDown": "",
+            "label": "App type",
+            "name": "WebAppKind",
+            "options": {
+              "apiApp": "API App",
+              "functionApp": "Function App on Windows",
+              "functionAppContainer": "Function App for Containers (Linux)",
+              "functionAppLinux": "Function App on Linux",
+              "mobileApp": "Mobile App",
+              "webApp": "Web App on Windows",
+              "webAppContainer": "Web App for Containers (Linux)",
+              "webAppLinux": "Web App on Linux"
+            },
+            "properties": {
+              "EditableOptions": "false"
+            },
+            "required": null,
+            "type": "pickList",
+            "validation": null,
+            "visibleRule": null
+          },
+          {
+            "aliases": [],
+            "defaultValue": "footer",
+            "groupName": "",
+            "helpMarkDown": "Enter or select the name of an existing Azure App Service.",
+            "label": "App service name",
+            "name": "WebAppName",
+            "options": {},
+            "properties": {
+              "EditableOptions": "True"
+            },
+            "required": true,
+            "type": "pickList",
+            "validation": null,
+            "visibleRule": ""
+          },
+          {
+            "aliases": [],
+            "defaultValue": "",
+            "groupName": "",
+            "helpMarkDown": "",
+            "label": null,
+            "name": "DockerNamespace",
+            "options": {},
+            "properties": {},
+            "required": true,
+            "type": "string",
+            "validation": null,
+            "visibleRule": "WebAppKind = webAppContainer || WebAppkind = functionAppContainer"
+          },
+          {
+            "aliases": [],
+            "defaultValue": "",
+            "groupName": "",
+            "helpMarkDown": "",
+            "label": null,
+            "name": "DockerRepository",
+            "options": {},
+            "properties": {},
+            "required": true,
+            "type": "string",
+            "validation": null,
+            "visibleRule": "WebAppKind = webAppContainer || WebAppkind = functionAppContainer"
+          },
+          {
+            "aliases": [],
+            "defaultValue": "",
+            "groupName": "",
+            "helpMarkDown": "Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll",
+            "label": "Startup command",
+            "name": "StartupCommand",
+            "options": {},
+            "properties": {},
+            "required": null,
+            "type": "string",
+            "validation": null,
+            "visibleRule": "WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux"
+          }
+        ],
+        "sourceDefinitions": null
+      },
+      "properties": {
+        "BoardsEnvironmentType": {
+          "$type": "System.String",
+          "$value": "unmapped"
+        },
+        "LinkBoardsWorkItems": {
+          "$type": "System.String",
+          "$value": "False"
+        }
+      },
+      "queueId": null,
+      "rank": 2,
+      "retentionPolicy": {
+        "daysToKeep": 30,
+        "releasesToKeep": 3,
+        "retainBuild": true
+      },
+      "runOptions": null,
+      "schedules": [],
+      "variableGroups": [],
+      "variables": {}
+    }
+  ],
+  "id": 1,
+  "isDeleted": false,
+  "lastRelease": null,
+  "modifiedBy": {
+    "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "directoryAlias": null,
+    "displayName": "Julian Simpson",
+    "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
+    "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "inactive": null,
+    "isAadIdentity": null,
+    "isContainer": null,
+    "isDeletedInOrigin": null,
+    "profileUrl": null,
+    "uniqueName": "simpsonjulian@gmail.com",
+    "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+  },
+  "modifiedOn": "2023-07-28T05:47:04.707000+00:00",
+  "name": "New release pipeline",
+  "path": "\\",
+  "pipelineProcess": null,
+  "projectReference": null,
+  "properties": {
+    "DefinitionCreationSource": {
+      "$type": "System.String",
+      "$value": "ReleaseNew"
+    },
+    "IntegrateBoardsWorkItems": {
+      "$type": "System.String",
+      "$value": "False"
+    },
+    "IntegrateJiraWorkItems": {
+      "$type": "System.String",
+      "$value": "false"
+    }
+  },
+  "releaseNameFormat": "Release-$(rev:r)",
+  "retentionPolicy": null,
+  "revision": 1,
+  "source": "userInterface",
+  "tags": [],
+  "triggers": [],
+  "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/definitions/1",
+  "variableGroups": [],
+  "variables": {}
+}

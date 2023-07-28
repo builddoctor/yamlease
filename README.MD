@@ -1,0 +1,1 @@
+az pipelines release definition list --organization https://dev.azure.com/builddoctor --project "test must go"
