@@ -1,0 +1,148 @@
+{
+  "id": 0,
+  "name": "New release pipeline",
+  "source": 2,
+  "comment": "",
+  "createdOn": "2020-10-31T10:02:19.034Z",
+  "createdBy": null,
+  "modifiedBy": null,
+  "modifiedOn": "2020-10-31T10:02:19.034Z",
+  "environments": [
+    {
+      "id": -1,
+      "name": "Stage 1",
+      "rank": 1,
+      "variables": {},
+      "variableGroups": [],
+      "preDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 0
+          }
+        ],
+        "approvalOptions": {
+          "executionOrder": 1
+        }
+      },
+      "deployStep": {
+        "tasks": [],
+        "id": 0
+      },
+      "postDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 0
+          }
+        ],
+        "approvalOptions": {
+          "executionOrder": 2
+        }
+      },
+      "deployPhases": [
+        {
+          "deploymentInput": {
+            "parallelExecution": {
+              "parallelExecutionType": 0
+            },
+            "agentSpecification": null,
+            "skipArtifactsDownload": false,
+            "artifactsDownloadInput": {},
+            "queueId": 1039,
+            "demands": [],
+            "enableAccessToken": false,
+            "timeoutInMinutes": 0,
+            "jobCancelTimeoutInMinutes": 1,
+            "condition": "succeeded()",
+            "overrideInputs": {},
+            "dependencies": []
+          },
+          "rank": 1,
+          "phaseType": 1,
+          "name": "Agent job",
+          "refName": null,
+          "workflowTasks": [],
+          "phaseInputs": {
+            "phaseinput_artifactdownloadinput": {
+              "artifactsDownloadInput": {},
+              "skipArtifactsDownload": false
+            }
+          }
+        }
+      ],
+      "runOptions": {},
+      "environmentOptions": {
+        "emailNotificationType": "OnlyOnFailure",
+        "emailRecipients": "release.environment.owner;release.creator",
+        "skipArtifactsDownload": false,
+        "timeoutInMinutes": 0,
+        "enableAccessToken": false,
+        "publishDeploymentStatus": true,
+        "badgeEnabled": false,
+        "autoLinkWorkItems": false,
+        "pullRequestDeploymentEnabled": false
+      },
+      "demands": [],
+      "conditions": [
+        {
+          "conditionType": 1,
+          "name": "ReleaseStarted",
+          "value": ""
+        }
+      ],
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
+      "schedules": [],
+      "properties": {
+        "LinkBoardsWorkItems": false,
+        "BoardsEnvironmentType": "unmapped"
+      },
+      "preDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "postDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "environmentTriggers": [],
+      "owner": {
+        "displayName": "Giacomo Stelluti Scala",
+        "id": "3617734a-1751-66f2-8343-c71c1398b5e6",
+        "isAadIdentity": true,
+        "isContainer": false,
+        "uniqueName": "giacomo.stelluti@dev4side.com",
+        "url": "https://dev.azure.com/dev4side/"
+      },
+      "retentionPolicy": {
+        "daysToKeep": 30,
+        "releasesToKeep": 3,
+        "retainBuild": true
+      },
+      "processParameters": {}
+    }
+  ],
+  "artifacts": [],
+  "variables": {},
+  "variableGroups": [],
+  "triggers": [],
+  "lastRelease": null,
+  "tags": [],
+  "path": "\\test-poc",
+  "properties": {
+    "DefinitionCreationSource": "ReleaseNew",
+    "IntegrateJiraWorkItems": "false",
+    "IntegrateBoardsWorkItems": false
+  },
+  "releaseNameFormat": "Release-$(rev:r)",
+  "description": ""
+}
