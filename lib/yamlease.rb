@@ -9,8 +9,15 @@ class ReleasePipeline
   end
 
   def parse(filename = "show.yml")
-    pipeline = YAML.load(File.read(filename))
-    @url = pipeline["url"]
+    @pipeline = YAML.load(File.read(filename))
+    @url = @pipeline["url"]
+  end
+
+  def stages
+    @pipeline["environments"].collect do |stage|
+      puts stage.inspect
+      { name: stage["name"], url: stage["badgeUrl"]}
+    end
   end
 
 
