@@ -7,6 +7,6 @@ rp.stages.each do |stage|
   puts stage[:name]
 
   stage[:tasks].each do |task|
-    puts "  #{task["name"]}"
+    puts "  #{task["name"]} (#{task["taskId"]})"
   end
 end

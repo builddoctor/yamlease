@@ -22,4 +22,8 @@ RSpec.describe ReleasePipeline do
   it "will list all the tasks in a stage" do
     expect(rp.stages[1][:tasks][0]["name"]).to eq("Deploy Azure App Service")
   end
+
+  it "will list all the task IDs in a stage" do
+    expect(rp.stages[1][:tasks][0]["taskId"]).to eq("497d490f-eea7-4f2b-ab94-48d9c1acdcb1")
+  end
 end
