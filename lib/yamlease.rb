@@ -44,6 +44,21 @@ class Task
   def initialize(name, url)
     @name = name
     @url = url
+    @file_read = File.read("task_map.txt")
+  end
+
+  def yaml_name(id)
+    matches = @file_read.split("\n").select do |line|
+      task_id, _task_name = line.split(" ")
+      task_id.downcase == id.downcase
+    end
+
+    matches.length > 0 ? matches[0].split(" ")[1] : "Unknown"
+
+  end
+
+  def self.yaml_name(id)
+    self.new("","").yaml_name(id)
   end
 end
 
@@ -76,15 +91,7 @@ class ReleasePipeline
 
   end
 
-  def get_task_by_id(id)
-    matches = File.read("task_map.txt").split("\n").select do |line|
-      task_id, _task_name = line.split(" ")
-      task_id.downcase == id.downcase
-    end
 
-    matches.length > 0 ? matches[0].split(" ")[1] : "Unknown"
-
-  end
 
 end
 

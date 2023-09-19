@@ -16,6 +16,6 @@ stages = rp.stages
 #   end
 # end
 
-template = ERB.new(File.read("lib/pipeline.erb"))
+template = ERB.new(File.read("lib/pipeline.erb"), trim_mode: "-")
 puts template.result(binding)
 
