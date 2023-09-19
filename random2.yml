@@ -31,14 +31,14 @@
       "value": "acimvc"
     }
   },
-  "variableGroups": [],
+  "variableGroups": [ ],
   "environments": [
     {
       "id": 1,
       "name": "dev",
       "rank": 1,
-      "variables": {},
-      "variableGroups": [],
+      "variables": { },
+      "variableGroups": [ ],
       "preDeployApprovals": {
         "approvals": [
           {
@@ -93,7 +93,7 @@
                   "artifactDownloadMode": "All"
                 },
                 {
-                  "artifactItems": [],
+                  "artifactItems": [ ],
                   "alias": "WebApp",
                   "artifactType": "Build",
                   "artifactDownloadMode": "All"
@@ -101,19 +101,19 @@
               ]
             },
             "queueId": 14,
-            "demands": [],
+            "demands": [ ],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
             "jobCancelTimeoutInMinutes": 1,
             "condition": "succeeded()",
-            "overrideInputs": {}
+            "overrideInputs": { }
           },
           "rank": 1,
           "phaseType": 1,
           "name": "Provision infrastructure",
           "workflowTasks": [
             {
-              "environment": {},
+              "environment": { },
               "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
               "version": "2.*",
               "name": "Azure Deployment:Create Or Update Resource Group action on $(RGName)",
@@ -123,7 +123,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "ConnectedServiceName": "",
@@ -150,7 +150,7 @@
               }
             },
             {
-              "environment": {},
+              "environment": { },
               "taskId": "9240b5c1-a1b2-4799-9325-e071c63236fb",
               "version": "1.*",
               "name": "Replace tokens in $(System.DefaultWorkingDirectory)/infra/Scripts/",
@@ -160,7 +160,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "sourcePath": "$(System.DefaultWorkingDirectory)/infra/Scripts/",
@@ -170,7 +170,7 @@
               }
             },
             {
-              "environment": {},
+              "environment": { },
               "taskId": "46e4be58-730b-4389-8a2f-ea10b3e5e815",
               "version": "1.*",
               "name": "Deploy ACI",
@@ -180,7 +180,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "connectedServiceNameARM": "",
@@ -208,7 +208,7 @@
                   "artifactDownloadMode": "All"
                 },
                 {
-                  "artifactItems": [],
+                  "artifactItems": [ ],
                   "alias": "WebApp",
                   "artifactType": "Build",
                   "artifactDownloadMode": "All"
@@ -216,19 +216,19 @@
               ]
             },
             "queueId": 25,
-            "demands": [],
+            "demands": [ ],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
             "jobCancelTimeoutInMinutes": 1,
             "condition": "succeeded()",
-            "overrideInputs": {}
+            "overrideInputs": { }
           },
           "rank": 2,
           "phaseType": 1,
           "name": "Deploy using WebDeploy",
           "workflowTasks": [
             {
-              "environment": {},
+              "environment": { },
               "taskId": "497d490f-eea7-4f2b-ab94-48d9c1acdcb1",
               "version": "4.*",
               "name": "Azure App Service Deploy: $(WebAppName)",
@@ -238,7 +238,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "ConnectionType": "AzureRM",
@@ -295,7 +295,7 @@
                   "artifactDownloadMode": "All"
                 },
                 {
-                  "artifactItems": [],
+                  "artifactItems": [ ],
                   "alias": "WebApp",
                   "artifactType": "Build",
                   "artifactDownloadMode": "All"
@@ -303,19 +303,19 @@
               ]
             },
             "queueId": 67,
-            "demands": [],
+            "demands": [ ],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
             "jobCancelTimeoutInMinutes": 1,
             "condition": "succeeded()",
-            "overrideInputs": {}
+            "overrideInputs": { }
           },
           "rank": 3,
           "phaseType": 1,
           "name": "Run Tests",
           "workflowTasks": [
             {
-              "environment": {},
+              "environment": { },
               "taskId": "b0ce7256-7898-45d3-9cb5-176b752bfea6",
               "version": "0.*",
               "name": "Use .NET Core sdk 2.1.3",
@@ -325,7 +325,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "packageType": "sdk",
@@ -333,7 +333,7 @@
               }
             },
             {
-              "environment": {},
+              "environment": { },
               "taskId": "9240b5c1-a1b2-4799-9325-e071c63236fb",
               "version": "1.*",
               "name": "Replace tokens in $(System.DefaultWorkingDirectory)/infra/Scripts",
@@ -343,7 +343,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "sourcePath": "$(System.DefaultWorkingDirectory)/infra/Scripts",
@@ -353,7 +353,7 @@
               }
             },
             {
-              "environment": {},
+              "environment": { },
               "taskId": "5541a522-603c-47ad-91fc-a4b1d163081b",
               "version": "2.*",
               "name": "dotnet test",
@@ -363,7 +363,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "command": "test",
@@ -401,7 +401,7 @@
               }
             },
             {
-              "environment": {},
+              "environment": { },
               "taskId": "0b0f01ed-7dde-43ff-9cbb-e48954daf9b1",
               "version": "2.*",
               "name": "Publish Test Results **/*.trx",
@@ -411,7 +411,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "testRunner": "VSTest",
@@ -440,7 +440,7 @@
                   "artifactDownloadMode": "All"
                 },
                 {
-                  "artifactItems": [],
+                  "artifactItems": [ ],
                   "alias": "WebApp",
                   "artifactType": "Build",
                   "artifactDownloadMode": "All"
@@ -448,19 +448,19 @@
               ]
             },
             "queueId": 14,
-            "demands": [],
+            "demands": [ ],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
             "jobCancelTimeoutInMinutes": 1,
             "condition": "succeededOrFailed()",
-            "overrideInputs": {}
+            "overrideInputs": { }
           },
           "rank": 4,
           "phaseType": 1,
           "name": "Tear down ACI",
           "workflowTasks": [
             {
-              "environment": {},
+              "environment": { },
               "taskId": "46e4be58-730b-4389-8a2f-ea10b3e5e815",
               "version": "1.*",
               "name": "Tear down ACI",
@@ -470,7 +470,7 @@
               "continueOnError": false,
               "timeoutInMinutes": 0,
               "definitionType": "task",
-              "overrideInputs": {},
+              "overrideInputs": { },
               "condition": "succeeded()",
               "inputs": {
                 "connectedServiceNameARM": "",
@@ -496,7 +496,7 @@
         "autoLinkWorkItems": false,
         "pullRequestDeploymentEnabled": false
       },
-      "demands": [],
+      "demands": [ ],
       "conditions": [
         {
           "name": "ReleaseStarted",
@@ -508,25 +508,25 @@
         "concurrencyCount": 1,
         "queueDepthCount": 0
       },
-      "schedules": [],
+      "schedules": [ ],
       "retentionPolicy": {
         "daysToKeep": 30,
         "releasesToKeep": 3,
         "retainBuild": true
       },
-      "processParameters": {},
-      "properties": {},
+      "processParameters": { },
+      "properties": { },
       "preDeploymentGates": {
         "id": 0,
         "gatesOptions": null,
-        "gates": []
+        "gates": [ ]
       },
       "postDeploymentGates": {
         "id": 0,
         "gatesOptions": null,
-        "gates": []
+        "gates": [ ]
       },
-      "environmentTriggers": []
+      "environmentTriggers": [ ]
     }
   ],
   "artifacts": [
@@ -619,12 +619,12 @@
   "triggers": [
     {
       "artifactAlias": "WebApp",
-      "triggerConditions": [],
+      "triggerConditions": [ ],
       "triggerType": 1
     }
   ],
   "releaseNameFormat": "$(Build.BuildNumber)-$(rev:r)",
-  "tags": [],
+  "tags": [ ],
   "properties": {
     "DefinitionCreationSource": {
       "$type": "System.String",

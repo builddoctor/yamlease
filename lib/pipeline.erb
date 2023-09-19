@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+vmImage: ubuntu-latest
+
+stages:
+<% for stage in stages %>
+- stage: <%= stage.name %>
+  jobs:
+  <% for job in stage.jobs %>
+  - job: <%= job.name %>
+    steps:
+    <% for task in job.tasks  %>
+    - script: "Do <%= task.name %> work"
+    <% end %>
+  <% end %>
+
+<% end %>
