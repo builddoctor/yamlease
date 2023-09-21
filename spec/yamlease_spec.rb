@@ -46,4 +46,8 @@ RSpec.describe ReleasePipeline do
   it "should not give inputs that don't have a value" do
     expect(rp.stages[1].jobs.first.tasks.first.inputs.first).to eq(["AppSettings", "-RAILS_SERVE_STATIC_FILES true"])
   end
+
+  it "should have job names without spaces" do
+    expect(rp.stages[1].jobs.first.name).to eq("RunOnAgent")
+  end
 end

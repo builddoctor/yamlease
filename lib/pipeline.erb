@@ -5,6 +5,12 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
+
+  - stage: BuildThings
+    jobs:
+      - job: Build
+        steps:
+          - shell: "Build your application here"
 <% for stage in stages %>
   - stage: <%= stage.name %>
     jobs:
@@ -16,7 +22,7 @@ stages:
           displayName: "<%= task.display_name %>"
           inputs:
         <% for input in task.inputs -%>
-        <%= input.join(':') %>
+    <%= input.join(': ') %>
         <% end %>
       <% end %>
   <% end %>

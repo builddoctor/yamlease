@@ -23,19 +23,27 @@ class Stage
 end
 
 class Job
-  attr_reader :name, :url, :yaml
+  attr_reader :url, :yaml
   attr_writer :yaml
 
   def initialize(name, url)
     @name = name
     @url = url
-
   end
 
   def tasks
     self.yaml["workflowTasks"].collect do |task|
       Task.new(yaml = task)
     end
+  end
+
+  def name
+    parts = @name.split(" ")
+    parts.map do |part|
+      first_character=part[0]
+      part[0] = first_character.upcase
+      part
+    end.join("")
   end
 
 end
@@ -55,9 +63,11 @@ class Task
   end
 
   def inputs
-    @yaml.inputs.delete_if do |key, value|
+    inputs = @yaml.inputs
+    inputs.delete_if do |key, value|
       value == ""
     end
+
   end
 
 end
