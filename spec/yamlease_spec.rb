@@ -24,18 +24,26 @@ RSpec.describe ReleasePipeline do
   end
 
   it "will list all the tasks in a job" do
-    expect(rp.stages[1].jobs.first.tasks.first.name).to eq("Deploy Azure App Service")
+    expect(rp.stages[1].jobs.first.tasks.first.display_name).to eq("Deploy Azure App Service")
   end
 
   it "will get the task IDs in a job" do
-    expect(rp.stages[1].jobs.first.tasks.first.taskId).to eq("497d490f-eea7-4f2b-ab94-48d9c1acdcb1")
+    expect(rp.stages[1].jobs.first.tasks.first.task_id).to eq("497d490f-eea7-4f2b-ab94-48d9c1acdcb1")
   end
 
   it "should know how to parse a task" do
-    expect(rp.get_task_by_id("D9BAFED4-0B18-4F58-968D-86655B4D2CE9")).to eq("CmdLineV2")
+    expect(TaskDefinition.yaml_name("D9BAFED4-0B18-4F58-968D-86655B4D2CE9")).to eq("CmdLine@2")
   end
 
   it "should return a good default when you fail to find a task" do
-    expect(rp.get_task_by_id("D9BAFED4-0B18-4F58-968D-HURRSDUDF")).to eq("Unknown")
+    expect(TaskDefinition.yaml_name("D9BAFED4-0B18-4F58-968D-HURRSDUDF")).to eq("Unknown")
+  end
+
+  it "should get a list of tasks from a job" do
+    expect(rp.stages[1].jobs.first.tasks.first).to be_a(Task)
+  end
+
+  it "should not give inputs that don't have a value" do
+    expect(rp.stages[1].jobs.first.tasks.first.inputs.first).to eq(["AppSettings", "-RAILS_SERVE_STATIC_FILES true"])
   end
 end

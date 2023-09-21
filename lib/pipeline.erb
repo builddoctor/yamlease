@@ -2,20 +2,21 @@ trigger:
 - main
 
 pool:
-vmImage: ubuntu-latest
+  vmImage: ubuntu-latest
 
 stages:
 <% for stage in stages %>
   - stage: <%= stage.name %>
-  jobs:
+    jobs:
   <% for job in stage.jobs %>
     - job: <%= job.name %>
       steps:
       <% for task in job.tasks %>
-        - <%= Task.yaml_name(task.taskId) %>: <%= task.name %>
+        - task: <%= task.yaml_name %>
+          displayName: "<%= task.display_name %>"
           inputs:
-        <% for input in task.inputs %>
-            <%= input.join(':') -%>
+        <% for input in task.inputs -%>
+        <%= input.join(':') %>
         <% end %>
       <% end %>
   <% end %>

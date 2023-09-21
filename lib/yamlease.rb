@@ -20,7 +20,6 @@ class Stage
     end
   end
 
-
 end
 
 class Job
@@ -34,16 +33,37 @@ class Job
   end
 
   def tasks
-    self.yaml["workflowTasks"]
+    self.yaml["workflowTasks"].collect do |task|
+      Task.new(yaml = task)
+    end
   end
+
 end
 
 class Task
-  attr_reader :name, :url
+  attr_writer :yaml
+  attr_reader :display_name, :task_id
 
-  def initialize(name, url)
-    @name = name
-    @url = url
+  def initialize(yaml)
+    @yaml = yaml
+    @display_name = yaml.name
+    @task_id = yaml.taskId
+  end
+
+  def yaml_name
+    TaskDefinition.yaml_name(task_id)
+  end
+
+  def inputs
+    @yaml.inputs.delete_if do |key, value|
+      value == ""
+    end
+  end
+
+end
+
+class TaskDefinition
+  def initialize
     @file_read = File.read("task_map.txt")
   end
 
@@ -53,13 +73,14 @@ class Task
       task_id.downcase == id.downcase
     end
 
-    matches.length > 0 ? matches[0].split(" ")[1] : "Unknown"
-
+    task_name = matches.length > 0 ? matches[0].split(" ")[1] : "Unknown"
+    task_name.sub(/V(\d+)$/, '@\1')
   end
 
   def self.yaml_name(id)
-    self.new("","").yaml_name(id)
+    self.new.yaml_name(id)
   end
+
 end
 
 class ReleasePipeline
@@ -81,6 +102,7 @@ class ReleasePipeline
   def jobs
     0
   end
+
   # stages are environments
   def stages
     @pipeline["environments"].collect do |stage|
@@ -90,8 +112,6 @@ class ReleasePipeline
     end
 
   end
-
-
 
 end
 
