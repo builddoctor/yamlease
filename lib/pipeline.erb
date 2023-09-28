@@ -1,7 +1,13 @@
 trigger:
 - main
 
+variables:
+  <% for key, value in rp.variables_to_yaml %>
+  <%= key %>: <%= value -%>
+  <% end %>
+
 pool:
+
   vmImage: ubuntu-latest
 
 stages:
@@ -10,7 +16,7 @@ stages:
     jobs:
       - job: Build
         steps:
-          - shell: "Build your application here"
+          - bash: "echo Build your application here"
 <% for stage in stages %>
   - stage: <%= stage.name %>
     jobs:

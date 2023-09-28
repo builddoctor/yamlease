@@ -40,7 +40,7 @@ class Job
   def name
     parts = @name.split(" ")
     parts.map do |part|
-      first_character=part[0]
+      first_character = part[0]
       part[0] = first_character.upcase
       part
     end.join("")
@@ -62,14 +62,23 @@ class Task
     TaskDefinition.yaml_name(task_id)
   end
 
-  def inputs
-    inputs = @yaml.inputs
-    inputs.delete_if do |key, value|
-      value == ""
-    end
-
+  def convert_vars_to_yaml(text)
+    text.gsub(/\$\((.+)\)/, '${{\1}}')
   end
 
+  def inputs
+    _inputs = @yaml.inputs
+    _inputs.delete_if { |key, value| value == "" }
+    _inputs.each do |key, value|
+      if value.include?('*')
+        _inputs[key] = "'#{value}'"
+      end
+      value = _inputs[key]
+      _inputs[key] = convert_vars_to_yaml(value)
+    end
+    _inputs
+
+  end
 end
 
 class TaskDefinition
@@ -94,7 +103,7 @@ class TaskDefinition
 end
 
 class ReleasePipeline
-  attr_reader :url
+  attr_reader :url, :variables
 
   def initialize(filename = nil)
     self.parse(filename)
@@ -103,14 +112,15 @@ class ReleasePipeline
   def parse(filename = "show.yml")
     @pipeline = YAML.load(File.read(filename)).with_dot_access
     @url = @pipeline["url"]
+    @variables = @pipeline["variables"]
   end
 
-  def transform
-
-  end
-
-  def jobs
-    0
+  def variables_to_yaml
+    response = {}
+    @variables.each do |key, value|
+      response[key] = value.value
+    end
+    response
   end
 
   # stages are environments

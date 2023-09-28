@@ -50,4 +50,20 @@ RSpec.describe ReleasePipeline do
   it "should have job names without spaces" do
     expect(rp.stages[1].jobs.first.name).to eq("RunOnAgent")
   end
+
+  it 'should ensure that tasks with globbing are quoted' do
+    expect(rp.stages[1].jobs.first.tasks.first.inputs['PublishProfilePath']).to eq("'${{System.DefaultWorkingDirectory}}/**/*.pubxml'")
+  end
+
+  it 'should render variables in YAML format' do
+    expect(rp.stages[1].jobs.first.tasks.first.inputs.WebAppKind).to eq("${{Parameters.WebAppKind}}")
+  end
+
+  it 'should find variables' do
+    expect(rp.variables.FooBar.value).to eq('baz')
+  end
+
+  it 'should convert variables to hashes for YAML pipelines' do
+    expect(rp.variables_to_yaml).to eq({ "FooBar" => "baz"})
+  end
 end

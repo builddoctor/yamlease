@@ -12,8 +12,8 @@
       "id": -1,
       "name": "Stage 1",
       "rank": 1,
-      "variables": {},
-      "variableGroups": [],
+      "variables": { },
+      "variableGroups": [ ],
       "preDeployApprovals": {
         "approvals": [
           {
@@ -28,7 +28,7 @@
         }
       },
       "deployStep": {
-        "tasks": [],
+        "tasks": [ ],
         "id": 0
       },
       "postDeployApprovals": {
@@ -52,30 +52,30 @@
             },
             "agentSpecification": null,
             "skipArtifactsDownload": false,
-            "artifactsDownloadInput": {},
+            "artifactsDownloadInput": { },
             "queueId": 1039,
-            "demands": [],
+            "demands": [ ],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
             "jobCancelTimeoutInMinutes": 1,
             "condition": "succeeded()",
-            "overrideInputs": {},
-            "dependencies": []
+            "overrideInputs": { },
+            "dependencies": [ ]
           },
           "rank": 1,
           "phaseType": 1,
           "name": "Agent job",
           "refName": null,
-          "workflowTasks": [],
+          "workflowTasks": [ ],
           "phaseInputs": {
             "phaseinput_artifactdownloadinput": {
-              "artifactsDownloadInput": {},
+              "artifactsDownloadInput": { },
               "skipArtifactsDownload": false
             }
           }
         }
       ],
-      "runOptions": {},
+      "runOptions": { },
       "environmentOptions": {
         "emailNotificationType": "OnlyOnFailure",
         "emailRecipients": "release.environment.owner;release.creator",
@@ -87,7 +87,7 @@
         "autoLinkWorkItems": false,
         "pullRequestDeploymentEnabled": false
       },
-      "demands": [],
+      "demands": [ ],
       "conditions": [
         {
           "conditionType": 1,
@@ -99,7 +99,7 @@
         "concurrencyCount": 1,
         "queueDepthCount": 0
       },
-      "schedules": [],
+      "schedules": [ ],
       "properties": {
         "LinkBoardsWorkItems": false,
         "BoardsEnvironmentType": "unmapped"
@@ -107,14 +107,14 @@
       "preDeploymentGates": {
         "id": 0,
         "gatesOptions": null,
-        "gates": []
+        "gates": [ ]
       },
       "postDeploymentGates": {
         "id": 0,
         "gatesOptions": null,
-        "gates": []
+        "gates": [ ]
       },
-      "environmentTriggers": [],
+      "environmentTriggers": [ ],
       "owner": {
         "displayName": "Giacomo Stelluti Scala",
         "id": "3617734a-1751-66f2-8343-c71c1398b5e6",
@@ -128,15 +128,15 @@
         "releasesToKeep": 3,
         "retainBuild": true
       },
-      "processParameters": {}
+      "processParameters": { }
     }
   ],
-  "artifacts": [],
-  "variables": {},
-  "variableGroups": [],
-  "triggers": [],
+  "artifacts": [ ],
+
+  "variableGroups": [ ],
+  "triggers": [ ],
   "lastRelease": null,
-  "tags": [],
+  "tags": [ ],
   "path": "\\test-poc",
   "properties": {
     "DefinitionCreationSource": "ReleaseNew",

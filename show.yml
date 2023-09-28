@@ -67,6 +67,7 @@
   },
   "createdOn": "2023-07-28T05:47:04.707000+00:00",
   "description": null,
+
   "environments": [
     {
       "badgeUrl": "https://vsrm.dev.azure.com/builddoctor/_apis/public/Release/badge/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/1/1",
@@ -575,5 +576,9 @@
   "triggers": [],
   "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/definitions/1",
   "variableGroups": [],
-  "variables": {}
+  "variables": {
+    "FooBar": {
+      "value": "baz"
+    }
+  }
 }
