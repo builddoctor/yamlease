@@ -1,1 +1,3 @@
 /.env
+.idea/
+azure-pipelines-tasks
