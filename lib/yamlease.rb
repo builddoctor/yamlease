@@ -2,6 +2,7 @@ require 'rspec'
 require 'yaml'
 require "hash_with_dot_access"
 
+
 class Stage
   attr_reader :name, :url, :yaml
   attr_writer :yaml
@@ -106,6 +107,7 @@ class ReleasePipeline
   attr_reader :url, :variables
 
   def initialize(filename = nil)
+    raise ArgumentError.new("I need a YAML file to parse") if filename.nil?
     self.parse(filename)
   end
 

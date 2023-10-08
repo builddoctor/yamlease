@@ -66,4 +66,8 @@ RSpec.describe ReleasePipeline do
   it 'should convert variables to hashes for YAML pipelines' do
     expect(rp.variables_to_yaml).to eq({ "FooBar" => "baz"})
   end
+
+  it "should throw an error if there's no args" do
+    expect {ReleasePipeline.new }.to raise_error(ArgumentError)
+  end
 end
