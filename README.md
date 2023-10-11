@@ -23,6 +23,12 @@ solely an ops team concern (and some shops no longer have an ops team), it makes
 
 ### Steps
 
+Install Yamlease:
+
+```bash
+gem install yamlease
+```
+
 Extract your release definition from ADO:
 
 ```bash
@@ -31,9 +37,9 @@ az pipelines release definition list --organization https://dev.azure.com/$ORG -
 az pipelines release definition show --organization https://dev.azure.com/$ORG --project "$PROJECT"  --id $ID| tee my_release.yml
 ```
 
-Run the script:
+Run Yamlease:
 
 ```bash 
-./ye.rb < my_release.yml > my_pipeline.yml
+ye  my_release.yml > my_pipeline.yml
 ``` 
 Paste your pipeline into ADO and tweak as necessary.  You'll want to add in a pipeline to build the application that you're releasing in the first stage.

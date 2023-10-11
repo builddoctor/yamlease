@@ -10,6 +10,9 @@ rp = ReleasePipeline.new(ARGV.first)
 
 stages = rp.stages
 
-template = ERB.new(File.read("lib/pipeline.erb"), trim_mode: "-")
+path_to_command = File.absolute_path(__FILE__)
+bin_dir = File.dirname(path_to_command)
+pipeline_template = File.join(bin_dir, '..', 'lib', 'pipeline.erb')
+template = ERB.new(File.read(pipeline_template), trim_mode: "-")
 puts template.result(binding)
 

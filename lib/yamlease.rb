@@ -3,6 +3,7 @@ require 'yaml'
 require "hash_with_dot_access"
 
 
+
 class Stage
   attr_reader :name, :url, :yaml
   attr_writer :yaml
@@ -84,11 +85,12 @@ end
 
 class TaskDefinition
   def initialize
-    @file_read = File.read("task_map.txt")
+    task_map = File.dirname(File.absolute_path(__FILE__)) + "/task_map.txt"
+    @tasks = File.read(task_map)
   end
 
   def yaml_name(id)
-    matches = @file_read.split("\n").select do |line|
+    matches = @tasks.split("\n").select do |line|
       task_id, _task_name = line.split(" ")
       task_id.downcase == id.downcase
     end

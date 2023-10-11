@@ -10,5 +10,7 @@ task_map.txt:
 gem:
 	gem build yamlease.gemspec
 
+cli:
+	./bin/ye show.yml
 
-.PHONY: clean task_map.txt spec gem
+.PHONY: clean task_map.txt spec gem cli
