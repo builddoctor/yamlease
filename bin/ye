@@ -8,7 +8,7 @@ require 'erb'
 
 rp = ReleasePipeline.new(ARGV.first)
 
-stages = rp.stages
+STAGES = rp.stages
 
 path_to_command = File.absolute_path(__FILE__)
 bin_dir = File.dirname(path_to_command)

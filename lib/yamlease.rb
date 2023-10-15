@@ -70,7 +70,7 @@ class Task
 
   def inputs
     _inputs = @yaml.inputs
-    _inputs.delete_if { |key, value| value == "" }
+    _inputs.delete_if { |_, value| value == "" }
     _inputs.each do |key, value|
       if value.include?('*')
         _inputs[key] = "'#{value}'"

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 definition to yaml and pipe it to this tool."
   s.authors = ["Julian Simpson"]
   s.email = "simpsonjulian@gmail.com"
-  s.files = ["bin/ye", "lib/yamlease.rb", "lib/pipeline.erb", "lib/task_map.txt"]
+  s.files = %w[bin/ye lib/yamlease.rb lib/pipeline.erb lib/task_map.txt]
   s.executables = "ye"
   s.homepage =
     "https://rubygems.org/gems/yamlease"

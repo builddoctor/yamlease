@@ -17,7 +17,7 @@ stages:
       - job: Build
         steps:
           - bash: "echo Build your application here"
-<% for stage in stages %>
+<% for stage in STAGES %>
   - stage: <%= stage.name %>
     jobs:
   <% for job in stage.jobs %>
