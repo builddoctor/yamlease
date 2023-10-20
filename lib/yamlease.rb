@@ -65,6 +65,7 @@ class Task
   end
 
   def convert_vars_to_yaml(text)
+    raise ArgumentError, "Input way too long" if text.length > 1000
     text.gsub(/\$\((.+)\)/, '${{\1}}')
   end
 
