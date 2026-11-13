@@ -27,6 +27,11 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    # The tests don't need RuboCop, and its dependencies need a newer Ruby than
+    # the gem supports, so leave the development group out.
+    env:
+      BUNDLE_WITHOUT: development
+
     steps:
     - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       with:

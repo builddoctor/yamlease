@@ -7,6 +7,10 @@ updates:
     # Wait a week before proposing a new release, in case it turns out to be compromised.
     cooldown:
       default-days: 7
+    # One pull request a week for all gem updates, instead of one per gem.
+    groups:
+      gems:
+        patterns: ["*"]
 
   # Keeps the action versions in .github/workflows up to date.
   - package-ecosystem: "github-actions"
@@ -16,3 +20,7 @@ updates:
     # Wait a week before proposing a new release, in case it turns out to be compromised.
     cooldown:
       default-days: 7
+    # One pull request a week for all action updates, instead of one per action.
+    groups:
+      actions:
+        patterns: ["*"]
