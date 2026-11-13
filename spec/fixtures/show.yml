@@ -1,14 +1,14 @@
 {
   "artifacts": [
     {
-      "alias": "_builddoctor.pipeline-playpen",
+      "alias": "_example-org.example-repo",
       "definitionReference": {
         "IsMultiDefinitionType": {
           "id": "False",
           "name": "False"
         },
         "artifactSourceDefinitionUrl": {
-          "id": "https://dev.azure.com/builddoctor/_permalink/_build/index?collectionId=233797f3-a68a-46bc-b292-1db7835cbb05&projectId=b5daf606-ce6b-453f-bead-ecf75316199c&definitionId=1",
+          "id": "https://dev.azure.com/example-org/_permalink/_build/index?collectionId=00000000-0000-0000-0000-000000000003&projectId=00000000-0000-0000-0000-000000000004&definitionId=1",
           "name": ""
         },
         "defaultVersionBranch": {
@@ -29,48 +29,48 @@
         },
         "definition": {
           "id": "1",
-          "name": "builddoctor.pipeline-playpen"
+          "name": "example-org.example-repo"
         },
         "definitions": {
           "id": "",
           "name": ""
         },
         "project": {
-          "id": "b5daf606-ce6b-453f-bead-ecf75316199c",
-          "name": "Playpen"
+          "id": "00000000-0000-0000-0000-000000000004",
+          "name": "ExampleProject"
         },
         "repository": {
-          "id": "155c9311-7e43-48cb-9d72-94146f787f8a",
+          "id": "00000000-0000-0000-0000-000000000005",
           "name": "test must go"
         }
       },
       "isPrimary": true,
       "isRetained": false,
-      "sourceId": "b5daf606-ce6b-453f-bead-ecf75316199c:1",
+      "sourceId": "00000000-0000-0000-0000-000000000004:1",
       "type": "Build"
     }
   ],
   "comment": null,
   "createdBy": {
-    "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "descriptor": "aad.REDACTED",
     "directoryAlias": null,
-    "displayName": "Julian Simpson",
-    "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
-    "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "displayName": "Example User",
+    "id": "00000000-0000-0000-0000-000000000001",
+    "imageUrl": "https://dev.azure.com/example-org/_apis/GraphProfile/MemberAvatars/aad.REDACTED",
     "inactive": null,
     "isAadIdentity": null,
     "isContainer": null,
     "isDeletedInOrigin": null,
     "profileUrl": null,
-    "uniqueName": "simpsonjulian@gmail.com",
-    "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+    "uniqueName": "user@example.com",
+    "url": "https://spsprodeau1.vssps.visualstudio.com/A00000000-0000-0000-0000-000000000002/_apis/Identities/00000000-0000-0000-0000-000000000001"
   },
   "createdOn": "2023-07-28T05:47:04.707000+00:00",
   "description": null,
 
   "environments": [
     {
-      "badgeUrl": "https://vsrm.dev.azure.com/builddoctor/_apis/public/Release/badge/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/1/1",
+      "badgeUrl": "https://vsrm.dev.azure.com/example-org/_apis/public/Release/badge/00000000-0000-0000-0000-000000000004/1/1",
       "conditions": [
         {
           "conditionType": "event",
@@ -81,7 +81,7 @@
       "currentRelease": {
         "id": 0,
         "name": null,
-        "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/releases/0"
+        "url": "https://vsrm.dev.azure.com/example-org/00000000-0000-0000-0000-000000000004/_apis/Release/releases/0"
       },
       "demands": [],
       "deployPhases": [
@@ -125,18 +125,18 @@
       "id": 1,
       "name": "Stage 1",
       "owner": {
-        "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "descriptor": "aad.REDACTED",
         "directoryAlias": null,
-        "displayName": "Julian Simpson",
-        "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
-        "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "displayName": "Example User",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "imageUrl": "https://dev.azure.com/example-org/_apis/GraphProfile/MemberAvatars/aad.REDACTED",
         "inactive": null,
         "isAadIdentity": null,
         "isContainer": null,
         "isDeletedInOrigin": null,
         "profileUrl": null,
-        "uniqueName": "simpsonjulian@gmail.com",
-        "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+        "uniqueName": "user@example.com",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A00000000-0000-0000-0000-000000000002/_apis/Identities/00000000-0000-0000-0000-000000000001"
       },
       "postDeployApprovals": {
         "approvalOptions": {
@@ -214,7 +214,7 @@
       "variables": {}
     },
     {
-      "badgeUrl": "https://vsrm.dev.azure.com/builddoctor/_apis/public/Release/badge/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/1/2",
+      "badgeUrl": "https://vsrm.dev.azure.com/example-org/_apis/public/Release/badge/00000000-0000-0000-0000-000000000004/1/2",
       "conditions": [
         {
           "conditionType": "environmentState",
@@ -225,7 +225,7 @@
       "currentRelease": {
         "id": 0,
         "name": null,
-        "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/releases/0"
+        "url": "https://vsrm.dev.azure.com/example-org/00000000-0000-0000-0000-000000000004/_apis/Release/releases/0"
       },
       "demands": [],
       "deployPhases": [
@@ -329,18 +329,18 @@
       "id": 2,
       "name": "Stage 2",
       "owner": {
-        "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "descriptor": "aad.REDACTED",
         "directoryAlias": null,
-        "displayName": "Julian Simpson",
-        "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
-        "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+        "displayName": "Example User",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "imageUrl": "https://dev.azure.com/example-org/_apis/GraphProfile/MemberAvatars/aad.REDACTED",
         "inactive": null,
         "isAadIdentity": null,
         "isContainer": null,
         "isDeletedInOrigin": null,
         "profileUrl": null,
-        "uniqueName": "simpsonjulian@gmail.com",
-        "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+        "uniqueName": "user@example.com",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A00000000-0000-0000-0000-000000000002/_apis/Identities/00000000-0000-0000-0000-000000000001"
       },
       "postDeployApprovals": {
         "approvalOptions": {
@@ -411,7 +411,7 @@
         "inputs": [
           {
             "aliases": [],
-            "defaultValue": "a3aab596-c264-4e36-9953-8f6c6d8a2200",
+            "defaultValue": "00000000-0000-0000-0000-000000000006",
             "groupName": "",
             "helpMarkDown": "Select the Azure Resource Manager subscription for the deployment.",
             "label": "Azure subscription",
@@ -536,18 +536,18 @@
   "isDeleted": false,
   "lastRelease": null,
   "modifiedBy": {
-    "descriptor": "aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "descriptor": "aad.REDACTED",
     "directoryAlias": null,
-    "displayName": "Julian Simpson",
-    "id": "877d09c1-0097-6fba-af3f-5c82583ea5a8",
-    "imageUrl": "https://dev.azure.com/builddoctor/_apis/GraphProfile/MemberAvatars/aad.YWZjOTlmODgtM2EzOS03OGUwLWJlZTUtNDY3NzAyYzg3MDgz",
+    "displayName": "Example User",
+    "id": "00000000-0000-0000-0000-000000000001",
+    "imageUrl": "https://dev.azure.com/example-org/_apis/GraphProfile/MemberAvatars/aad.REDACTED",
     "inactive": null,
     "isAadIdentity": null,
     "isContainer": null,
     "isDeletedInOrigin": null,
     "profileUrl": null,
-    "uniqueName": "simpsonjulian@gmail.com",
-    "url": "https://spsprodeau1.vssps.visualstudio.com/Ab7c95702-b979-44f4-8d59-1ac9e538c181/_apis/Identities/877d09c1-0097-6fba-af3f-5c82583ea5a8"
+    "uniqueName": "user@example.com",
+    "url": "https://spsprodeau1.vssps.visualstudio.com/A00000000-0000-0000-0000-000000000002/_apis/Identities/00000000-0000-0000-0000-000000000001"
   },
   "modifiedOn": "2023-07-28T05:47:04.707000+00:00",
   "name": "New release pipeline",
@@ -574,7 +574,7 @@
   "source": "userInterface",
   "tags": [],
   "triggers": [],
-  "url": "https://vsrm.dev.azure.com/builddoctor/8b6935cc-ac1a-47f3-9114-12e7e977ce0f/_apis/Release/definitions/1",
+  "url": "https://vsrm.dev.azure.com/example-org/00000000-0000-0000-0000-000000000004/_apis/Release/definitions/1",
   "variableGroups": [],
   "variables": {
     "FooBar": {

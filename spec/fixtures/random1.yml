@@ -116,12 +116,12 @@
       },
       "environmentTriggers": [ ],
       "owner": {
-        "displayName": "Giacomo Stelluti Scala",
-        "id": "3617734a-1751-66f2-8343-c71c1398b5e6",
+        "displayName": "Example User",
+        "id": "00000000-0000-0000-0000-000000000001",
         "isAadIdentity": true,
         "isContainer": false,
-        "uniqueName": "giacomo.stelluti@dev4side.com",
-        "url": "https://dev.azure.com/dev4side/"
+        "uniqueName": "user@example.com",
+        "url": "https://dev.azure.com/example-org/"
       },
       "retentionPolicy": {
         "daysToKeep": 30,

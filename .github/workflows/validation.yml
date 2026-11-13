@@ -6,31 +6,50 @@ on:
   pull_request:
     branches: ["main"]
 
+permissions:
+  contents: read
+
+# A newer push to the same branch or pull request cancels runs that are out of date.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
+    name: Ruby ${{ matrix.ruby }} on ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        ruby: [3.0.6, 2.7.8]
+        # 3.1 is the oldest version the gemspec allows; the rest are maintained releases.
+        # Quoted so YAML doesn't read 4.0 as the number 4.
+        ruby: ['3.1', '3.3', '3.4', '4.0']
 
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      with:
+        persist-credentials: false
+
     - name: Set up Ruby ${{ matrix.ruby }}
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94 # v1.336.0
       with:
         ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
 
-    - name: Install dependencies
-      run: bundle install
-
-    - name: Run Makefile
-      if: matrix.os == 'ubuntu-latest'
-      run: make spec cli
-
-    - name: Run Windows
-      if: matrix.os == 'windows-latest'
+    # Bash on both OSes (Git Bash on Windows): it stops at the first failing
+    # command, whereas a multi-line pwsh step only checks the last one.
+    - name: Run specs and convert the sample definition
+      shell: bash
       run: |
-          bundle exec rspec spec
-          ./cli.ps1
+        bundle exec rspec spec
+        ruby bin/ye spec/fixtures/show.yml
+
+    # Checks the packaged gem works on its own, outside Bundler and the repo.
+    - name: Build, install and run the gem
+      if: runner.os == 'Linux'
+      run: |
+        gem build yamlease.gemspec -o yamlease.gem
+        gem install --local --no-document yamlease.gem
+        cd "$RUNNER_TEMP" && ye "$GITHUB_WORKSPACE/spec/fixtures/show.yml" > /dev/null

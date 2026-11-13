@@ -1,0 +1,6 @@
+rules:
+  # validation.yml installs the gem it has just built from this checkout, to
+  # check the package works; nothing is fetched from outside a lockfile.
+  adhoc-packages:
+    ignore:
+      - validation.yml

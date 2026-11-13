@@ -1,52 +1,48 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# pulled from repo
 name: "Rubocop"
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ "main" ]
   schedule:
     - cron: '33 3 * * 5'
 
+permissions:
+  contents: read
+
+# A newer push to the same branch or pull request cancels runs that are out of date.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   rubocop:
+    name: Rubocop
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
+    permissions:
+      contents: read
+      security-events: write # upload SARIF to code scanning
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
-
-    # If running on a self-hosted runner, check it meets the requirements
-    # listed at https://github.com/ruby/setup-ruby#using-self-hosted-runners
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       with:
-        ruby-version: 3.0.3
+        persist-credentials: false
 
-    # This step is not necessary if you add the gem to your Gemfile
-    - name: Install Code Scanning integration
-      run: bundle add code-scanning-rubocop --version 0.3.0 --skip-install
+    # Uses the version in .ruby-version and the gems in Gemfile.lock.
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94 # v1.336.0
+      with:
+        bundler-cache: true
 
-    - name: Install dependencies
-      run: bundle install
-
+    # Fails the job on any offence; the SARIF report is uploaded either way so
+    # offences also show up as code scanning alerts.
     - name: Rubocop run
-      run: |
-        bash -c "
-          bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
-          [[ $? -ne 2 ]]
-        "
+      run: bundle exec rubocop --require code_scanning --format progress --format CodeScanning::SarifFormatter -o rubocop.sarif
 
     - name: Upload Sarif output
-      uses: github/codeql-action/upload-sarif@v2
+      if: ${{ !cancelled() }}
+      uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
       with:
         sarif_file: rubocop.sarif

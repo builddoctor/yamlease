@@ -1,8 +1,8 @@
 YAML from relEASE definition
 ============================
 
-This project allows you to generate a YAML pipeline from an existing ADO "release" pipeline. The YAML pipeline is
-generated from the "release" pipeline definition, not from the "release" pipeline run.
+Yamlease generates a YAML pipeline from an existing Azure DevOps (ADO) classic "release" pipeline. It works from the
+release *definition* (the pipeline you edit), not from a release run.
 
 ## Why?
 
@@ -17,9 +17,9 @@ solely an ops team concern (and some shops no longer have an ops team), it makes
 ## Usage
 
 ### Prerequisites
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) with the ADO extension
-* Ruby 3.0 distribution
-* this repo cloned locally
+
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) with the `azure-devops` extension
+* Ruby 3.1 or later
 
 ### Steps
 
@@ -29,17 +29,65 @@ Install Yamlease:
 gem install yamlease
 ```
 
-Extract your release definition from ADO:
+Find your release definition's ID and export it from ADO:
 
 ```bash
-
-az pipelines release definition list --organization https://dev.azure.com/$ORG --project "$PROJECT" 
-az pipelines release definition show --organization https://dev.azure.com/$ORG --project "$PROJECT"  --id $ID| tee my_release.yml
+az pipelines release definition list --organization https://dev.azure.com/$ORG --project "$PROJECT" --output table
+az pipelines release definition show --organization https://dev.azure.com/$ORG --project "$PROJECT" --id $ID > my_release.json
 ```
 
 Run Yamlease:
 
-```bash 
-ye  my_release.yml > my_pipeline.yml
-``` 
-Paste your pipeline into ADO and tweak as necessary.  You'll want to add in a pipeline to build the application that you're releasing in the first stage.
+```bash
+ye my_release.json > azure-pipelines.yml
+```
+
+Then work through the `# TODO` comments at the top of the generated file, add your build steps to the `BuildThings`
+stage, and commit the pipeline to your repository.
+
+## What gets converted
+
+| Classic release                                       | YAML pipeline                                              |
+|-------------------------------------------------------|------------------------------------------------------------|
+| Environments (stages)                                 | Stages, with `dependsOn` worked out from the stage triggers |
+| Deployment phases                                     | Jobs, run one after another as they were in the release     |
+| Agentless phases                                      | Jobs with `pool: server`                                   |
+| Microsoft-hosted agent images                         | Job `pool: vmImage`                                        |
+| Built-in tasks, with their inputs                     | Steps, using the task version the release used             |
+| Disabled tasks, conditions, continue on error, timeouts | The matching step and job settings                       |
+| Pipeline and stage variables                          | `variables`                                                |
+
+`$(variable)` references are kept as they are, because YAML pipelines support the same syntax.
+
+## What you need to finish by hand
+
+Yamlease can't convert everything, either because the export doesn't contain enough detail or because YAML pipelines
+do it differently. Each of these is listed as a `# TODO` at the top of the output (and on stderr when you redirect
+the output to a file):
+
+* **Approvals and gates:** add them as checks on an [environment](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments)
+  and turn the job into a deployment job.
+* **Secret variables:** they aren't in the export. Add them as secret pipeline variables, or from a variable group or
+  Key Vault.
+* **Variable groups:** the export only has their IDs. Add each one as `- group: <name>`.
+* **Artifacts:** add them under `resources` and download them in the jobs that use them.
+* **Self-hosted agent pools:** the export only has the queue ID. Set `pool: name:`.
+* **Deployment groups:** use a deployment job that targets an environment with virtual machine resources.
+* **Task groups:** convert them to step templates.
+* **Marketplace tasks:** they appear as `task: Unknown`; replace that with the task's YAML name.
+* **Manually deployed stages, artifact filters and triggers on statuses other than "succeeded".**
+
+The generated pipeline triggers on `main` and uses an `ubuntu-latest` pool by default; change both to suit.
+
+## Development
+
+```bash
+bundle install
+make spec   # run the tests
+make lint   # run RuboCop
+make cli    # convert the sample definition in spec/fixtures
+```
+
+`lib/task_map.txt` maps task IDs to task names. Regenerate it from
+[microsoft/azure-pipelines-tasks](https://github.com/microsoft/azure-pipelines-tasks) with `make lib/task_map.txt`
+(needs the GitHub CLI and `jq`).

@@ -1,18 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.8)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 1.6, < 2)
-      minitest (>= 5.1)
-      tzinfo (~> 2.0)
-    concurrent-ruby (1.2.2)
+    ast (2.4.3)
+    code-scanning-rubocop (0.6.1)
+      rubocop (~> 1.0)
     diff-lcs (1.5.0)
-    hash_with_dot_access (1.2.0)
-      activesupport (>= 5.0.0, < 8.0)
-    i18n (1.14.1)
-      concurrent-ruby (~> 1.0)
-    minitest (5.20.0)
+    json (3.1.0)
+    language_server-protocol (3.17.0.6)
+    lint_roller (1.1.0)
+    parallel (2.3.0)
+    parser (3.3.13.0)
+      ast (~> 2.4.1)
+      racc
+    prism (2.1.0-arm64-darwin)
+    prism (2.1.0-x64-mingw-ucrt)
+    prism (2.1.0-x86_64-linux-gnu)
+    racc (1.8.1)
+    rainbow (3.1.1)
+    regexp_parser (2.13.1)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -26,15 +31,35 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    tzinfo (2.0.6)
-      concurrent-ruby (~> 1.0)
+    rubocop (1.92.2)
+      json (>= 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (>= 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.11.3, < 3.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.51.0)
+      parser (>= 3.3.7.2)
+      prism (>= 1.7)
+    ruby-progressbar (1.13.0)
+    unicode-display_width (3.3.0)
+      unicode-emoji (~> 4.3)
+    unicode-emoji (4.3.0)
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-24
+  x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
-  hash_with_dot_access (~> 1.2.0)
+  code-scanning-rubocop (~> 0.6)
   rspec (~> 3.9)
+  rubocop (~> 1.92)
 
 BUNDLED WITH
-   2.2.32
+   2.6.9

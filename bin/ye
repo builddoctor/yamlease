@@ -1,18 +1,19 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-unless require_relative '../lib/yamlease'
-  require 'yamlease'
+require_relative '../lib/yamlease'
+
+if ARGV.length != 1
+  warn 'Usage: ye RELEASE_DEFINITION_FILE'
+  exit 2
 end
 
-require 'erb'
-
-rp = ReleasePipeline.new(ARGV.first)
-
-STAGES = rp.stages
-
-path_to_command = File.absolute_path(__FILE__)
-bin_dir = File.dirname(path_to_command)
-pipeline_template = File.join(bin_dir, '..', 'lib', 'pipeline.erb')
-template = ERB.new(File.read(pipeline_template), trim_mode: "-")
-puts template.result(binding)
-
+begin
+  pipeline = Yamlease::ReleasePipeline.new(ARGV.first)
+  puts pipeline.to_yaml
+  # The warnings are already in the YAML header; repeat them only if that is going to a file.
+  pipeline.warnings.each { |message| warn "TODO: #{message}" } unless $stdout.tty?
+rescue Yamlease::Error, SystemCallError, Psych::SyntaxError => e
+  warn "ye: #{e.message}"
+  exit 1
+end
